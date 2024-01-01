@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="Task.css">
+</head>
+<body>
+    <div class="Register_form">
+        <h1>Register Form</h1>
+        <form action="" id="my_form" method="post" onsubmit="return validate()">
+            <label for="first_name">First name</label><br>
+            <input type="text" id="first_name" class="width" ><br>
+            <small id ="first_name_error">error</small><br>
+            
+            <label for="last_name">Last name</label><br>
+            <input type="text" id="last_name" class="width"><br>
+            <small id="last_name_error">error</small><br>
+
+            <label for="email_address">Email Address</label><br>
+            <input type="text" id="email_address" class="width"><br>
+            <small id="email_address_error">error</small><br>
+          
+            <label for="phone_no">phone no.</label><br>
+            <input type="number" id="phone_no" class="width" ><br>
+            <small id="phone_no_error">error</small><br>
+
+            <label for="Zipcode">Zipcode</label><br>
+            <input type="number" id="zipcode" class="width" ><br>
+            <small id="zipcode_error">error</small><br>
+
+            <label for="birthdate">Birth-date</label><br>
+            <input type="text" id="birthdate" class="width"><br>
+            <small id="birthdate_error">error</small><br>
+
+            <label for="gender">Gender</label><br>
+            <input type="radio" id="male" name="gender" ><label for="male">Male</label>
+            <input type="radio" id="female" name="gender" ><label for="female">Female</label>
+            <input type="radio" id="other" name="gender" ><label for="other">Other</label><br>
+            <small id="gender_error">error</small><br>
+              
+            <label for="hobby" id="hobby">Hobby</label><br>
+            <input type="checkbox" id="cricket" name="hobby">Cricket
+            <input type="checkbox" id="Reading" name="hobby" >Reading
+            <input type="checkbox" id="Traveling" name="hobby" >Traveling
+            <input type="checkbox" id="Movies" name="hobby">Movies <br>
+            <small id="hobby_error">error</small><br>
+
+            <label for="technology" id="techno">Technology</label><br>
+           <select name="technology" id="technology" class="technology" multiple>
+                <option value="python">python</option>
+                <option value="Html">Html</option>
+                <option value="css">css</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Reactjs">Reactjs</option>
+           </select><br>
+            <small id="technology_error">error</small><br>
+
+            <button type ="submit" id="submit">submit</button>
+            <button id="view_list">view List</button>    
+            
+        </form>
+
+    </div>
+    <script src="Task1.js"></script>
+</body>
+</html>
+
+
+
+
