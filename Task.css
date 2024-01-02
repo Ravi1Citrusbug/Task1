@@ -69,6 +69,21 @@ small
 }
 .modal-content
 {
-    width: 200%;
+    width: 120%;
     height: 200%;
+}
+.edit
+{
+    background-color: blue;
+    color: azure;
+}
+.delete
+{
+    background-color:red;
+    color: aliceblue;
+}
+.rename
+{
+    background-color: blueviolet;
+    color: aliceblue;
 }

@@ -8,6 +8,7 @@ var gender = document.getElementsByName("gender");
 var hobby = document.getElementsByName('hobby');
 var technology = document.getElementById('technology').selectedOptions;
 
+var submit_form = document.getElementById("my_form");
 var submit = document.getElementById("submit");
 
 // regularexpression
@@ -18,15 +19,19 @@ var birthdateregex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
 
 
 // adding event listner for from validation on submit button
-submit.addEventListener("click",()=>{
-    console.log(localStorage.getItem("user1"))
+submit_form.addEventListener("submit",()=>{
+    console.log(JSON.parse(localStorage.getItem("user1")))
+    // for (let a of technology){
+    //     console.log(a.value);
+    // }
     validate();
     if(validate()){
-
         storage();
     }
+    // displaydata();
    
 })
+submit.addEventListener("click",displaydata);
 
 // validate function
 const validate=()=>{
@@ -43,7 +48,7 @@ const validate=()=>{
         first_name_error.style.visibility="visible";
         return false;
     }
-    else if (last_name_val==""){
+    if (last_name_val==""){
         let first_name_error=document.getElementById("last_name_error");
         last_name_error.innerText="please enter your last name";
         last_name_error.style.visibility="visible";
@@ -112,7 +117,6 @@ const validate=()=>{
         technology_error.style.visibility="visible";
         return false;
     }
-    alert("form submitted successfully")
     return true;
     
 }
@@ -126,9 +130,8 @@ const storage=()=>{
     var birthdate_val = birthdate.value.trim();
     let gender_val;
     let hobby_val="";
-    let technologys="";
-    data = [];
-    
+    let technology="";
+    data = [];  
     // to catch gender value
     if(gender[0].checked){
         gender_val="Male"
@@ -139,7 +142,6 @@ const storage=()=>{
     else if(gender[2].checked){
         gender_val="Female"
     }
-
     // to catch hobby value
     if(hobby[0].checked){
         hobby_val=hobby_val+"Cricket "
@@ -153,13 +155,10 @@ const storage=()=>{
     if(hobby[3].checked){
         hobby_val=hobby_val+"Movies "
     }
-
     // to get value of hobby
     for (let a of technology){
-        technologys=technologys+a.value+" ";
-    }
-
-    
+        technology=technology+a.value+" ";
+    } 
     let obj={
         "first_name":first_name_val,
         "last_name":last_name_val,
@@ -169,16 +168,46 @@ const storage=()=>{
         "birthdate":birthdate_val,
         "gender": gender_val,
         "hobby": hobby_val,
-        "technology_value":technologys,
+        "technology_value":technology,
     }
     if (localStorage.getItem("user1")!=null){
         for(let x of JSON.parse(localStorage.getItem("user1"))){
             data.push(x)
-        }
-        // data.push(JSON.parse(localStorage.getItem("user1"))[0])
+        }   
     }
-    data.push(obj)
-    
-
+    data.push(obj)    
     localStorage.setItem("user1",JSON.stringify(data));
 }
+
+// get data from localStorage 
+var userdata =JSON.parse(localStorage.getItem("user1"));
+
+
+// to display data on page
+function displaydata(){
+    var tbdata= document.querySelector(".userdata");
+    var element = "";
+    for(let d of userdata){
+        element+=`<tr>
+            <td>${userdata.indexOf(d)}</td>
+             <td>${d.first_name}</td>
+             <td>${d.last_name}</td>
+             <td>${d.email_address}</td>
+             <td>${d.phone_no}</td>
+             <td>${d.zipcode}</td>
+             <td>${d.birthdate}</td>
+             <td>${d.gender}</td>
+             <td>${d.hobby}</td>
+             <td>${d.technology_value}</td>
+             <td><button class="edit">edit</button></td>
+             <td><button type="button" class="delete" id=${userdata.indexOf(d)}>delete</button></td>
+             <td><button class="rename">view</button></td>
+            </tr>`
+
+    }
+    tbdata.innerHTML=element;
+   
+}    
+
+// delete function
+let button = document.getElementsByClassName("delete")
