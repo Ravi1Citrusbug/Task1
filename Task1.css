@@ -1,0 +1,89 @@
+.Register_form
+{
+    border-style: solid;
+    border-color: aliceblue;
+    border-width: 30px;
+    height: 1068px;
+    border-radius: 10px;
+    width: 90%;
+}
+#my_form
+{
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.width
+{
+   
+    width: 95%;
+    height: 30px;
+    border-radius: 5px;
+    border-width: thin;
+    margin: 10px 0px;
+}
+input
+{
+    margin-top: 7px;
+}
+#hobby
+{
+    position: absolute;
+    margin-top: 5px;
+    
+}
+#technology
+{
+    width: 95%;
+    height: 90px;
+    border-radius: 5px;
+    border-width:thin;
+    margin: 10px 0px;
+}
+textarea
+{
+    margin-top: 20px;
+    width: 95%;
+    height: 80px;
+}
+#submit
+{
+    background-color: blue;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: aliceblue;
+    margin-top: 0px;
+}
+#view_list
+{
+    background-color: green;
+    padding:  10px 20px;
+    border-radius: 4px;
+    color: aliceblue;
+}
+small
+{
+    visibility: hidden;
+    color: red;
+    margin-top: 0px;
+    position: absolute;
+}
+.modal-content
+{
+    width: 120%;
+    height: 200%;
+}
+.edit
+{
+    background-color: blue;
+    color: azure;
+}
+.delete
+{
+    background-color:red;
+    color: aliceblue;
+}
+.view
+{
+    background-color: blueviolet;
+    color: aliceblue;
+}
